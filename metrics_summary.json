@@ -1,0 +1,134 @@
+{
+  "project_name": "GradeSense \u2014 Student Performance Intelligence",
+  "pipeline_version": "2.0.0",
+  "created_at_utc": "2026-10-15T04:21:39.079032+00:00",
+  "primary_model": "Random Forest",
+  "baseline_model": "Linear Regression",
+  "feature_names": [
+    "G1",
+    "G2",
+    "absences",
+    "studytime",
+    "failures"
+  ],
+  "target_variable": "G3",
+  "dataset_info": {
+    "name": "student-mat.csv",
+    "total_records": 395,
+    "training_records": 316,
+    "test_records": 79,
+    "zero_g3_records": 38,
+    "zero_g3_rationale": "Retained as authentic student outcomes indicating course dropouts or exam absentees.",
+    "test_size_fraction": 0.2,
+    "random_seed": 42
+  },
+  "benchmarks": [
+    {
+      "model_name": "Linear Regression",
+      "cv_r2_mean": 0.8288,
+      "cv_r2_std": 0.0426,
+      "cv_mae_mean": 1.1609,
+      "cv_mae_std": 0.2644,
+      "cv_rmse_mean": 1.8489,
+      "cv_rmse_std": 0.4229,
+      "train_r2": 0.838,
+      "train_mae": 1.1266,
+      "train_rmse": 1.8444,
+      "test_r2": 0.7822,
+      "test_mae": 1.3394,
+      "test_mse": 4.4665,
+      "test_rmse": 2.1134
+    },
+    {
+      "model_name": "Ridge Regression",
+      "cv_r2_mean": 0.8289,
+      "cv_r2_std": 0.0427,
+      "cv_mae_mean": 1.1607,
+      "cv_mae_std": 0.2641,
+      "cv_rmse_mean": 1.8487,
+      "cv_rmse_std": 0.4229,
+      "train_r2": 0.838,
+      "train_mae": 1.1265,
+      "train_rmse": 1.8444,
+      "test_r2": 0.7823,
+      "test_mae": 1.3392,
+      "test_mse": 4.4641,
+      "test_rmse": 2.1128
+    },
+    {
+      "model_name": "Random Forest",
+      "cv_r2_mean": 0.8587,
+      "cv_r2_std": 0.0468,
+      "cv_mae_mean": 0.9663,
+      "cv_mae_std": 0.1846,
+      "cv_rmse_mean": 1.6606,
+      "cv_rmse_std": 0.42,
+      "train_r2": 0.9123,
+      "train_mae": 0.7986,
+      "train_rmse": 1.3571,
+      "test_r2": 0.848,
+      "test_mae": 1.1249,
+      "test_mse": 3.1162,
+      "test_rmse": 1.7653
+    },
+    {
+      "model_name": "Gradient Boosting",
+      "cv_r2_mean": 0.8714,
+      "cv_r2_std": 0.0376,
+      "cv_mae_mean": 0.975,
+      "cv_mae_std": 0.1851,
+      "cv_rmse_mean": 1.6016,
+      "cv_rmse_std": 0.4167,
+      "train_r2": 0.9108,
+      "train_mae": 0.805,
+      "train_rmse": 1.3685,
+      "test_r2": 0.8462,
+      "test_mae": 1.1167,
+      "test_mse": 3.1534,
+      "test_rmse": 1.7758
+    }
+  ],
+  "primary_model_summary": {
+    "model_type": "RandomForestRegressor",
+    "hyperparameters": {
+      "n_estimators": 100,
+      "max_depth": 4,
+      "min_samples_split": 5,
+      "min_samples_leaf": 2,
+      "random_state": 42
+    },
+    "feature_importances": {
+      "G1": 0.006503524508384834,
+      "G2": 0.8657208412622407,
+      "absences": 0.11781576654227434,
+      "studytime": 0.007213814274051619,
+      "failures": 0.002746053413048509
+    },
+    "5_fold_cv_r2": 0.8587,
+    "5_fold_cv_mae": 0.9663,
+    "test_r2": 0.848,
+    "test_mae": 1.1249,
+    "test_rmse": 1.7653
+  },
+  "baseline_model_summary": {
+    "model_type": "LinearRegression",
+    "intercept": -1.6213124035190951,
+    "coefficients": {
+      "G1": 0.14446336051278255,
+      "G2": 0.9796153221870525,
+      "absences": 0.03924489916837323,
+      "studytime": -0.07123057385726139,
+      "failures": -0.455812887771553
+    },
+    "5_fold_cv_r2": 0.8288,
+    "5_fold_cv_mae": 1.1609,
+    "test_r2": 0.7822,
+    "test_mae": 1.3394,
+    "test_rmse": 2.1134
+  },
+  "environment": {
+    "python_scikit_learn": "1.9.1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6"
+  }
+}
